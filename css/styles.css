@@ -241,7 +241,7 @@ section.active-class .landing__container::after {
 }
 
 .active-nav {
-    color: yellow;
+    border: solid 2px pink;
 }
 
 #button-container {

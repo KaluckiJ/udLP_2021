@@ -79,16 +79,18 @@ window.addEventListener('load', function() {
 
 function makeSectionActive() {
 	for (i of section){
-        let id = i.id;
+        // how to target each individual li a??
+        let navList = document.getElementById("navbar__list").getElementsByTagName("li");
+        console.log(navList);
         //check if section is in view and add class
 		if (isInViewport(i) == true){
 			i.classList.add('active-class');
-            document.querySelector('#' + id).classList.add('active');
+            navList.classList.add('active-nav');
             }
         //remove class when section is out of view
 		else{
 			i.classList.remove('active-class');
-			document.querySelector('#' + id).classList.remove('active');
+			navList.classList.remove('active-nav');
 			}
 	}
 }
@@ -96,7 +98,6 @@ function makeSectionActive() {
 window.addEventListener("scroll", function(){
 	makeSectionActive();
 });
-
 
 
 
