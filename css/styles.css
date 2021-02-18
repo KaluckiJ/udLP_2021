@@ -224,7 +224,7 @@ section:nth-of-type(3n + 1) .landing__container::after {
 section.active-class {
     background: rgb(0, 0, 0);
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
-    border: solid 1px;
+    border-bottom: solid 1px;
     color: #fff;
     text-shadow: none;
 
@@ -238,6 +238,10 @@ section.active-class .landing__container::before {
 section.active-class .landing__container::after {
     opacity: 1;
     animation: rotate 5s linear 0s infinite forwards reverse;
+}
+
+.active-nav {
+    color: yellow;
 }
 
 #button-container {

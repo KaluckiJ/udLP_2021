@@ -50,12 +50,23 @@ function buildTheNav() {
 		let nav_section = document.createElement('li');
         let a = document.createElement('a');
         //add link to li items and individual classes
-		a.setAttribute('href', "#"+ section[i].id);
         nav_section.setAttribute('class', 'menu__link');
         nav_section.setAttribute('id', 'menu__links');
 		nav_section.dataset.nav = section[i].id;
 		navbar.appendChild(nav_section);
-		nav_section.appendChild(a).innerText=section[i].dataset.nav;
+        nav_section.appendChild(a).innerText=section[i].dataset.nav;
+
+        //event listener to list for click on nav item
+        nav_section.addEventListener('click', () => {
+            // console.log('clicked');
+                // e.preventDefault();
+
+                //scroll clicked section into view smoothly
+                section[i].scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start',
+                })
+        })
 	}
 }
 
@@ -86,6 +97,9 @@ window.addEventListener("scroll", function(){
 	makeSectionActive();
 });
 
+
+
+
 /**
  * End Main Functions
  * Begin Events
@@ -97,18 +111,18 @@ window.addEventListener("scroll", function(){
 
 
 // hide nav when scrolling show when scrolling up
-let prevScrollPosition = window.pageYOffset;
-window.onscroll = function() {
-    let currentScrollPosition = window.pageYOffset;
-    if (prevScrollPosition > currentScrollPosition){
-        document.getElementById("page-header").style.top = "0";
-    } else {
-        document.getElementById("page-header").style.top = "-50px";
-    }
-    prevScrollPosition = currentScrollPosition;
-};
+// let prevScrollPosition = window.pageYOffset;
+// window.onscroll = function() {
+//     let currentScrollPosition = window.pageYOffset;
+//     if (prevScrollPosition > currentScrollPosition){
+//         document.getElementById("page-header").style.top = "0";
+//     } else {
+//         document.getElementById("page-header").style.top = "-50px";
+//     }
+//     prevScrollPosition = currentScrollPosition;
+// };
 
-//Scroll to top
+//Scroll back to top
 let scrollButton = document.getElementById("scroll-top-button");
 let rootElement = document.documentElement;
 
@@ -119,19 +133,3 @@ rootElement.scrollTo({
    })
 }
 scrollButton.addEventListener("click", scrollToTop);
-
-//Scroll to section not working!
-
-let navLink = document.getElementById('navbar__list');
-let whichLink = document.querySelectorAll('li a').href;
-let sectionBody = document.getElementsByTagName("section");
-
-function scrollDown () {
-    console.log('nav item was clicked');
-    console.log(whichLink);
-    sectionBody.scrollIntoView({
-        behavior: 'smooth',
-    })
-}
-
-navLink.addEventListener('click', scrollDown);
