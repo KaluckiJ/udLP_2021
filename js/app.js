@@ -27,15 +27,16 @@ let section = document.getElementsByTagName("section");
 */
 
 //Check if elements are in viewport - helper function
-const isInViewport = function (elem) {
-    const bounding = elem.getBoundingClientRect();
+const isInViewport = (elem) => {
+    const distance = elem.getBoundingClientRect();
+  
     return (
-        bounding.top >= 0 &&
-        bounding.left >= 0 &&
-        bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
+      distance.top >= 0 &&
+      distance.left >= 0 &&
+      distance.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      distance.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
-};
+  };
 
 /**
  * End Helper Functions
@@ -63,6 +64,7 @@ function buildTheNav() {
 
                 //scroll clicked section into view smoothly
                 section[i].scrollIntoView({
+                    alignToTop: 'true',
                     behavior: 'smooth',
                     block: 'start',
                 })
@@ -71,34 +73,37 @@ function buildTheNav() {
 }
 
 // Build menu 
-window.addEventListener('load', function() {
-	buildTheNav();
-});
+// window.addEventListener('load', function() {
+// 	buildTheNav();
+// });
 
 // Add class 'active' to section when near top of viewport
 
 function makeSectionActive() {
 	for (i of section){
         // how to target each individual li a??
-        let navList = document.getElementById("navbar__list").getElementsByTagName("li");
-        console.log(navList);
+        let navItem = document.querySelector('li.menu__link[data-nav=${i.id}]');
+        // console.log(navItem);
         //check if section is in view and add class
 		if (isInViewport(i) == true){
 			i.classList.add('active-class');
-            navList.classList.add('active-nav');
+            navItem.classList.add('active-nav');
             }
         //remove class when section is out of view
 		else{
 			i.classList.remove('active-class');
-			navList.classList.remove('active-nav');
+			navItem.classList.remove('active-nav');
 			}
 	}
 }
 
-window.addEventListener("scroll", function(){
-	makeSectionActive();
+window.addEventListener('load', function() {
+    buildTheNav();
+    
+        window.addEventListener("scroll", function(){
+	       makeSectionActive();
+        });
 });
-
 
 
 /**
