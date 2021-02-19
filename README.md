@@ -4,6 +4,8 @@
 
 * [Instructions](#instructions)
 * [About](#about)
+* [Installation](#installation)
+* [Performance](#performance)
 
 ## Instructions
 
@@ -18,4 +20,18 @@ For specific, detailed instructions, look at the project instructions in the Uda
 Simple interactive landing page with top nav and 4 sections. Each section has a corresponding image that will dissappear on mobile. Top nav disappears when user stops scrolling and reappears when user scrolls up. Top nav links down to it's corresponding section/anchor. 
 
 Future upgrades for this project could include a webform and make this a campaign landing page for a lead generating campaign. Could also include an HTML5 video instead of images for better engagement. 
+
+Project file size: 16.1 MB
+
+
+## Installation
+
+Install as you normally would for html/css/js projects
+git repo: https://github.com/KaluckiJ/udLP_2021
+
+## Performance
+
+Check load time of full js document by uncommenting lines 1 & 125 to log the load time. 
+
+
 

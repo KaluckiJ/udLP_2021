@@ -1,3 +1,5 @@
+// console.time()
+
 /**
  * 
  * Manipulating the DOM exercise.
@@ -72,27 +74,23 @@ function buildTheNav() {
 	}
 }
 
-// Build menu 
-// window.addEventListener('load', function() {
-// 	buildTheNav();
-// });
-
 // Add class 'active' to section when near top of viewport
 
 function makeSectionActive() {
 	for (i of section){
-        // how to target each individual li a??
-        let navItem = document.querySelector('li.menu__link[data-nav=${i.id}]');
+        // target anchor links in top nav
+        let navItem = document.querySelector(`li.menu__link[data-nav=${i.id}]`);
         // console.log(navItem);
         //check if section is in view and add class
 		if (isInViewport(i) == true){
-			i.classList.add('active-class');
+            i.classList.add('active-class');
+            // add class to top anchor links when section comes into view
             navItem.classList.add('active-nav');
             }
-        //remove class when section is out of view
+        //remove classes when section is out of view
 		else{
 			i.classList.remove('active-class');
-			navItem.classList.remove('active-nav');
+            navItem.classList.remove('active-nav');
 			}
 	}
 }
@@ -112,22 +110,6 @@ window.addEventListener('load', function() {
  * 
 */
 
-
-// Make sections active
-
-
-// hide nav when scrolling show when scrolling up
-// let prevScrollPosition = window.pageYOffset;
-// window.onscroll = function() {
-//     let currentScrollPosition = window.pageYOffset;
-//     if (prevScrollPosition > currentScrollPosition){
-//         document.getElementById("page-header").style.top = "0";
-//     } else {
-//         document.getElementById("page-header").style.top = "-50px";
-//     }
-//     prevScrollPosition = currentScrollPosition;
-// };
-
 //Scroll back to top
 let scrollButton = document.getElementById("scroll-top-button");
 let rootElement = document.documentElement;
@@ -139,3 +121,5 @@ rootElement.scrollTo({
    })
 }
 scrollButton.addEventListener("click", scrollToTop);
+
+// console.timeEnd();

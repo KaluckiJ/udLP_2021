@@ -12,10 +12,6 @@
 
 /* ---- Base Rules ---- */
 
-/* html {
-    scroll-behavior: smooth;
-} */
-
 body {
     background: rgb(136,203,171);
     background: linear-gradient(0deg, rgba(136,203,171,1) 0%, rgba(0,13,60,1) 100%);
@@ -135,8 +131,9 @@ section {
 }
 
 /* TO DO fit images on mobile and make them stack according to their section */
+
 .landing__container img {
-    width:100%;
+    display:none;
 }
 
 @media only screen and (min-width: 35em){
@@ -148,6 +145,7 @@ section {
 
     .landing__container img {
         width:100%;
+        display: block;
     }
 }
 
@@ -224,7 +222,6 @@ section:nth-of-type(3n + 1) .landing__container::after {
 section.active-class {
     background: rgb(0, 0, 0);
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
-    border-bottom: solid 1px;
     color: #fff;
     text-shadow: none;
 
@@ -240,8 +237,9 @@ section.active-class .landing__container::after {
     animation: rotate 5s linear 0s infinite forwards reverse;
 }
 
-.active-nav {
-    border: solid 2px pink;
+.active-nav a {
+    color: #FE21A5;
+    text-decoration: #FE21A5 underline;
 }
 
 #button-container {
